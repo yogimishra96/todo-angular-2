@@ -1,10 +1,22 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+
+@Component ({
+   selector: 'app-root',
+   templateUrl: 'app.component.html',
 })
-export class AppComponent {
-  title = 'app';
+
+export class AppComponent  {
+  todoData: any[] = [];
+
+  newTodoText : string = '';
+
+  addTodo(){
+    // this.inputdata = todo;
+    console.log(this.newTodoText);
+  }
+
 }
+
+
