@@ -1,4 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+@Injectable()
+export class NumberDetails {
+  constructor(private http: HttpClient) { }
+
+  getDetails() {
+    return this.http.get('https://numspy.pythonanywhere.com/LocateMobile/8824179288');
+  }
+
+}
 
 export class Todo {
   completed: Boolean;
@@ -14,7 +25,6 @@ export class Todo {
   }
 
   constructor(title: String) {
-    console.log(title);
     this.completed = false;
     this.editing = false;
     this.title = title.trim();

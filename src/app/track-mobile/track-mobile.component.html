@@ -1,0 +1,25 @@
+
+<br> <br> <br>
+
+<!--<div class="row">-->
+<div  style="margin: auto; width: 50%;">
+      <input type="text"
+         class="form-control"
+         ng-minlength="10"
+         ng-maxlength="10"
+         id="inputPhone"
+         name="phone"
+         placeholder="Phone"
+         ng-model="user.phone"
+         ng-required="true"   [(ngModel)]="mobileNumber" (keyup.enter)="getDetails()"  >
+  <!--</div>-->
+</div>
+<!--{"data":{"Mobile":"8824179288","Name":"RSS Yogesh","Provider":"Reliance","State":"RAJASTHAN"}}-->
+<div class="jumbotron" style="width: 50%;
+    margin: 16px auto; font-size: 20px">
+  <pre>
+  Mobile   : {{mobile}} <br>
+  Provider : {{provider}} <br>
+  State    : {{state}} <br>
+  </pre>
+</div>
