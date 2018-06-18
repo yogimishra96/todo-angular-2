@@ -9,6 +9,7 @@ import {StoreService, Todo} from './store.service';
 export class TodoComponent implements OnInit {
 
   ngOnInit() {
+   // console.log(this.todoStore.todos);
   }
   todoStore: StoreService;
   newTodoText = '';
@@ -17,35 +18,8 @@ export class TodoComponent implements OnInit {
     this.todoStore = todoStore;
   }
 
-  stopEditing(todo: Todo, editedTitle: string) {
-    todo.title = editedTitle;
-    todo.editing = false;
-  }
-
-  cancelEditingTodo(todo: Todo) {
-    todo.editing = false;
-  }
-
-  updateEditingTodo(todo: Todo, editedTitle: string) {
-    editedTitle = editedTitle.trim();
-    todo.editing = false;
-
-    if (editedTitle.length === 0) {
-      return this.todoStore.remove(todo);
-    }
-
-    todo.title = editedTitle;
-  }
-
-  editTodo(todo: Todo) {
-    todo.editing = true;
-  }
-
-  removeCompleted() {
-    this.todoStore.removeCompleted();
-  }
-
   toggleCompletion(todo: Todo) {
+    // console.log(this.todoStore.todos);
     this.todoStore.toggleCompletion(todo);
   }
 
@@ -60,7 +34,17 @@ export class TodoComponent implements OnInit {
     }
   }
 
+  showCompleted(){
+    this.todoStore.getCompleted();
+    // console.log(this.todoStore);
+  }
 
+  showNotDone(){
+    this.todoStore.getRemaining();
+  }
 
+  showAllTodos(){
+    this.todoStore.getDataFromLocalStorage();
+  }
 
 }

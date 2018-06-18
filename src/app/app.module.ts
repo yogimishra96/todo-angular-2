@@ -10,9 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {NumberDetails} from './todo/store.service';
 
 const appRoutes: Routes = [
-  { path: '', component: TodoComponent }
+  { path: '', component: TodoComponent },
   { path: 'track-mobile-cmp', component: TrackMobileComponent }
-
 ];
 
 @NgModule({

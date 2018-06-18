@@ -14,6 +14,7 @@ export class TrackMobileComponent implements OnInit {
   mobile: string = '8824179288' ;
   provider: string =  'Jio';
   state: string = 'rajsthan';
+  responseData : any = {};
 
   // apiData ;
 
@@ -22,14 +23,31 @@ export class TrackMobileComponent implements OnInit {
   }
 
   ngOnInit() {
-   // console.log(this.apiData);
-     this.getDetails();
 
   }
 
   getDetails(){
+    if(this.mobileNumber){
+      // console.log('asdf');
+      this.apiData.mobile = this.mobileNumber;
+      // this.getDataFromService();
       this.apiData.getDetails()
-     .subscribe((data => console.log(data)) );
+        .subscribe((data) => {
+            this.responseData = data;
+          // console.log(this.responseData)
+          this.mobile = this.responseData.data.Mobile
+          this.provider = this.responseData.data.Provider
+          this.state = this.responseData.data.State
+
+
+
+        });
+
+    }
   }
+
+  // getDataFromService(){
+
+  // }
 
 }

@@ -26,13 +26,13 @@ export class AppComponent implements OnInit{
     // }
   }
 
-  getFoods() {
-       this._demoService.getFoods().subscribe(
-       data => { this.foods = data},
-           err => console.error(err),
-           () => console.log('done loading foods')
-       );
-  }
+  // getFoods() {
+  //      this._demoService.getFoods().subscribe(
+  //      data => { this.foods = data},
+  //          err => console.error(err),
+  //          () => console.log('done loading foods')
+  //      );
+  // }
 
 
 

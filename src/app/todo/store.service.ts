@@ -1,12 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
 
 @Injectable()
 export class NumberDetails {
+
+  mobile: number;
+
   constructor(private http: HttpClient) { }
 
   getDetails() {
-    return this.http.get('https://numspy.pythonanywhere.com/LocateMobile/8824179288');
+    if (this.mobile) {
+
+      return this.http.get('https://numspy.pythonanywhere.com/LocateMobile/' + this.mobile) .pipe(
+        map(res => res) // or any other operator
+      );
+    }
   }
 
 }
@@ -14,15 +25,14 @@ export class NumberDetails {
 export class Todo {
   completed: Boolean;
   editing: Boolean;
+  title: String;
 
-  private _title: String;
-
-  get title() {
-    return this._title;
-  }
-  set title(value: String) {
-    this._title = value.trim();
-  }
+  // get title() {
+  //   return this._title;
+  // }
+  // set title(value: String) {
+  //   this._title = value.trim();
+  // }
 
   constructor(title: String) {
     this.completed = false;
@@ -39,13 +49,22 @@ export class StoreService {
   todos: Array<Todo>;
 
   constructor() {
-    let persistedTodos = JSON.parse(localStorage.getItem('angular2-todos') || '[]');
+    this.getDataFromLocalStorage();
+  }
+
+  getDataFromLocalStorage(){
+    const persistedTodos = JSON.parse(localStorage.getItem('angular2-todos') || '[]');
+    this.todos = persistedTodos;
+
+    // console.log(persistedTodos);
     // Normalize back into classes
-    this.todos = persistedTodos.map( (todo: {_title: String, completed: Boolean}) => {
-      let ret = new Todo(todo._title);
-      ret.completed = todo.completed;
-      return ret;
-    });
+    // console.log(persistedTodos);
+    // this.todos = persistedTodos.map( (todo) => {
+    //   const ret = new Todo(todo.title);
+    //   ret.completed = todo.completed;
+    //   console.log(ret);
+    //   return ret;
+    // });
   }
 
   private updateStore() {
@@ -53,7 +72,10 @@ export class StoreService {
   }
 
   private getWithCompleted(completed: Boolean) {
-    return this.todos.filter((todo: Todo) => todo.completed === completed);
+    // console.log(this.todos);
+    this.getDataFromLocalStorage();
+    this.todos = this.todos.filter((todo) => todo.completed === completed);
+    return this.todos;
   }
 
   allCompleted() {
@@ -64,23 +86,26 @@ export class StoreService {
     this.todos.forEach((t: Todo) => t.completed = completed);
     this.updateStore();
   }
-
-  removeCompleted() {
-    this.todos = this.getWithCompleted(false);
-    this.updateStore();
-  }
+  //
+  // removeCompleted() {
+  //   this.todos = this.getWithCompleted(false);
+  //   this.updateStore();
+  // }
 
   getRemaining() {
     return this.getWithCompleted(false);
   }
 
   getCompleted() {
+    // console.log('here');
     return this.getWithCompleted(true);
   }
 
-  toggleCompletion(todo: Todo) {
+  toggleCompletion(todo) {
+    // console.log('herer');
     todo.completed = !todo.completed;
     this.updateStore();
+    // this.getDataFromLocalStorage();
   }
 
   remove(todo: Todo) {
