@@ -78,14 +78,14 @@ export class StoreService {
     return this.todos;
   }
 
-  allCompleted() {
-    return this.todos.length === this.getCompleted().length;
-  }
-
-  setAllTo(completed: Boolean) {
-    this.todos.forEach((t: Todo) => t.completed = completed);
-    this.updateStore();
-  }
+  // allCompleted() {
+  //   return this.todos.length === this.getCompleted().length;
+  // }
+  //
+  // setAllTo(completed: Boolean) {
+  //   this.todos.forEach((t: Todo) => t.completed = completed);
+  //   this.updateStore();
+  // }
   //
   // removeCompleted() {
   //   this.todos = this.getWithCompleted(false);

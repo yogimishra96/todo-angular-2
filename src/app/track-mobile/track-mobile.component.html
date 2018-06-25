@@ -14,6 +14,9 @@
          ng-required="true"   [(ngModel)]="mobileNumber" (keyup.enter)="getDetails()"  >
   <!--</div>-->
 </div>
+<div *ngIf="showLoader" class="loderimage" ><!-- so this div containing img will be dislpayed only when the showLoader is equal to true-->
+  <img src="../../assets/images/octo.gif"> <!-- or any other spinner -->
+</div>
 <!--{"data":{"Mobile":"8824179288","Name":"RSS Yogesh","Provider":"Reliance","State":"RAJASTHAN"}}-->
 <div class="jumbotron" style="width: 50%;
     margin: 16px auto; font-size: 20px">

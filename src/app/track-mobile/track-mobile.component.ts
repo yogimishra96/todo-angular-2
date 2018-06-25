@@ -15,6 +15,8 @@ export class TrackMobileComponent implements OnInit {
   provider: string =  'Jio';
   state: string = 'rajsthan';
   responseData : any = {};
+  showLoader  = false;
+
 
   // apiData ;
 
@@ -28,6 +30,7 @@ export class TrackMobileComponent implements OnInit {
 
   getDetails(){
     if(this.mobileNumber){
+      this.showLoader = true;
       // console.log('asdf');
       this.apiData.mobile = this.mobileNumber;
       // this.getDataFromService();
@@ -38,9 +41,7 @@ export class TrackMobileComponent implements OnInit {
           this.mobile = this.responseData.data.Mobile
           this.provider = this.responseData.data.Provider
           this.state = this.responseData.data.State
-
-
-
+          this.showLoader = false;
         });
 
     }

@@ -8,25 +8,31 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodoComponent } from './todo/todo.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NumberDetails} from './todo/store.service';
+import { LikeTrelloComponent } from './like-trello/like-trello.component';
+import { DragulaModule } from 'ng2-dragula';
+
 
 const appRoutes: Routes = [
   { path: '', component: TodoComponent },
-  { path: 'track-mobile-cmp', component: TrackMobileComponent }
+  { path: 'track-mobile-cmp', component: TrackMobileComponent },
+  { path: 'app-like-trello', component: LikeTrelloComponent }
 ];
 
 @NgModule({
   declarations: [
     TrackMobileComponent,
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    LikeTrelloComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    DragulaModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
+      appRoutes
+      // { enableTracing: false } // <-- debugging purposes only
     )
   ],
   providers: [NumberDetails],

@@ -1,40 +1,21 @@
-import {  Component , OnInit } from '@angular/core';
-// import { StoreService, Todo} from './todo/store.service';
+import { Component } from '@angular/core';
+// import
+
 
 @Component ({
    selector: 'app-root',
    templateUrl: 'app.component.html',
 })
 
-
-export class AppComponent implements OnInit{
-
-  constructor() {
-
-  }
-
-  ngOnInit() {
-
-    // this.todoStore.
-    // for("let data of this.todoStore.todos; let i = index){
-    //   console.log(data);
-    // }
-
-    // this.todoStore.todos.forEach(function(data)){
-    //   console.log(data);
-    //
-    // }
-  }
-
-  // getFoods() {
-  //      this._demoService.getFoods().subscribe(
-  //      data => { this.foods = data},
-  //          err => console.error(err),
-  //          () => console.log('done loading foods')
-  //      );
+export class AppComponent  {
+  // todoData: any[] = [];
+  //
+  // newTodoText : string = '';
+  //
+  // addTodo(){
+  //   // this.inputdata = todo;
+  //   console.log(this.newTodoText);
   // }
-
-
 
 }
 
