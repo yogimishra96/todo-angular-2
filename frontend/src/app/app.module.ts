@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {NumberDetails} from './todo/store.service';
 import { LikeTrelloComponent } from './like-trello/like-trello.component';
 import { DragulaModule } from 'ng2-dragula';
+import { MongoTodoComponent } from './mongo-todo/mongo-todo.component';
 
 
 const appRoutes: Routes = [
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     TrackMobileComponent,
     AppComponent,
     TodoComponent,
-    LikeTrelloComponent
+    LikeTrelloComponent,
+    MongoTodoComponent
   ],
   imports: [
     BrowserModule,
