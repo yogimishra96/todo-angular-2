@@ -16,7 +16,10 @@ import { MongoTodoComponent } from './mongo-todo/mongo-todo.component';
 const appRoutes: Routes = [
   { path: '', component: TodoComponent },
   { path: 'track-mobile-cmp', component: TrackMobileComponent },
-  { path: 'app-like-trello', component: LikeTrelloComponent }
+  { path: 'app-like-trello', component: LikeTrelloComponent },
+  { path: 'app-mongo-todo', component: MongoTodoComponent },
+
+
 ];
 
 @NgModule({

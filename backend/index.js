@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const mongoose = require('mongoose');
 const url = 'mongodb://localhost/todo';
-const todo = require('./model/todo');
+const todos = require('./model/todo');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false}))
@@ -12,7 +12,7 @@ app.post('/api/add', (req, res) => {
     mongoose.connect(url, function(err){
         if(err) throw err;
 
-        var addTodo = new todo({title:req.body.title,completed:false})
+        var addTodo = new todos({title:req.body.title,completed:false})
         addTodo.save(function (err, addTodo) {
             if (err) return console.error(err);
             // console.log('sdf');
@@ -23,12 +23,12 @@ app.post('/api/add', (req, res) => {
     });
 })
 
-app.post('/api/getTodos', (req, res) => {
+app.get('/api/getTodos', (req, res) => {
     mongoose.connect(url, function(err){
         if(err) throw err;
-        todo.find(function (err, todo) {
+        todos.find(function (err, todos) {
             if (err) return console.error(err);
-            res.send(todo);
+            res.send(todos);
         })
 
     });

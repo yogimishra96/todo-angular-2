@@ -6,8 +6,8 @@ const todoSchema = new Schema({
     title: { type: String, required: true },
     completed: { type: Boolean, required: true },
     // name: { type: String }
-}, { collection : 'todo' });
+}, { collection : 'todos' });
 
-const todo = mongoose.model('todo', todoSchema);
+const todos = mongoose.model('todos', todoSchema);
 
-module.exports = todo;
+module.exports = todos;

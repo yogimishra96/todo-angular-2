@@ -29,7 +29,7 @@
            </li> -->
 
       <!--<script>console.log(todoStore.todos);</script>-->
-      <li *ngFor="let todo of todoStore.todos let i = index"  class="list-group-item">
+      <li *ngFor="let todo of todoArray let i = index"  class="list-group-item">
         <div class="custom-control custom-checkbox">
           <input class="custom-control-input" type="checkbox" id="customCheck{{i}}"  (click)="toggleCompletion(todo)" [checked]="todo.completed">
           <label class="custom-control-label" for="customCheck{{i}}" (dblclick)="editTodo(todo)">{{todo.title}}</label>
@@ -40,13 +40,13 @@
     </ul>
   </div>
   <div class="col-lg-3"></div>
-  <div class="btn-group  btncss" role="group">
-    <!-- <a href="#" class="btn  btn-secondary w-100 all_todos_show">0</a> -->
-    <button class="btn  btn-secondary w-100 all_todos_show" (click) = "showAllTodos()"  >All</button>
-    <button class="btn  btn-secondary w-100 completed" (click) = "showCompleted()"> Completed</button>
-    <button class="btn  btn-secondary w-100 uncompleted" (click) = "showNotDone()">Uncompleted</button>
-    <!-- <a href="#" class="btn  btn-secondary w-100 all_todos_show">Clear completed</a> -->
+  <!--<div class="btn-group  btncss" role="group">-->
+    <!--&lt;!&ndash; <a href="#" class="btn  btn-secondary w-100 all_todos_show">0</a> &ndash;&gt;-->
+    <!--<button class="btn  btn-secondary w-100 all_todos_show" (click) = "showAllTodos()"  >All</button>-->
+    <!--<button class="btn  btn-secondary w-100 completed" (click) = "showCompleted()"> Completed</button>-->
+    <!--<button class="btn  btn-secondary w-100 uncompleted" (click) = "showNotDone()">Uncompleted</button>-->
+    <!--&lt;!&ndash; <a href="#" class="btn  btn-secondary w-100 all_todos_show">Clear completed</a> &ndash;&gt;-->
 
-  </div>
+  <!--</div>-->
 
 </div>
