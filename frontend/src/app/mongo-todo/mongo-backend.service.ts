@@ -29,9 +29,18 @@ export class MongoBackendService {
   }
 
   addTodos (todo){
-    console.log(todo);
-    return this.http.post(this.apiUrl+'/add', todo, httpOptions).subscribe(res => console.log(res));
+    return this.http.post(this.apiUrl+'/add', todo, httpOptions);
   }
+
+
+  // extractData(res: Response) {
+  //   let body = res.json();
+  //   return body || {};
+  // }
+  // handleErrorObservable (error: Response | any) {
+  //   console.error(error.message || error);
+  //   return Observable.throw(error.message || error);
+  // }
 
 }
 

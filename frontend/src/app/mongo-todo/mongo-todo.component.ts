@@ -27,9 +27,19 @@ export class MongoTodoComponent implements OnInit {
   addTodo(){
     if(this.newTodoText.trim().length){
       // this.todos.addTodos({"title" : this.newTodoText})
-      this.todos.addTodos({"title" : this.newTodoText,"completed" : false}).subscribe(todo => this.todoArray.push(todo));
+      let newtodo = {"title" : this.newTodoText,"completed" : false};
+      this.todos.addTodos(newtodo).subscribe((data) => {
+        console.log(data.statusCode);
+        // if(data.statusCode == 200){
+          this.todoArray.push(newtodo);
+        // }
+        },
+        error => {
+          console.log(error);
+          // alert('Please insert correct indian mobile number !');
+        });
     }
-    this.getTodos();
+
   }
 
 }
