@@ -27,7 +27,8 @@
               "src/bootstrap/css/bootstrap.min.css",
               "node_modules/dragula/dist/dragula.css"
             ],
-            "scripts": []
+            "scripts": ["../node_modules/jquery/dist/jquery.min.js"]
+
           },
           "configurations": {
             "production": {

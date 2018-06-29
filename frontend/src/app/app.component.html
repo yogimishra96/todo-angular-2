@@ -1,4 +1,4 @@
-<nav class="navbar  navbar-dark  bg-dark">
+<nav class="navbar  navbar-dark  bg-dark" *ngIf="showHeader">
         <a class="navbar-brand" href="/" routerLinkActive="active">To Do App</a>
         <a class="navbar-brand" routerLink = "track-mobile-cmp" routerLinkActive="active"> Locate Mobile</a>
         <a class="navbar-brand" routerLink = "app-like-trello" routerLinkActive="active"> Draggable Todo</a>
@@ -8,6 +8,6 @@
 <router-outlet></router-outlet>
 
 
-<footer class="container-fluid bg-dark custom_footer">
+<footer class="container-fluid bg-dark custom_footer" *ngIf="showHeader">
         <p>&copy; Habilelabs 2018-2019</p>
 </footer>

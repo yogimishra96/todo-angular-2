@@ -11,6 +11,7 @@ import {NumberDetails} from './todo/store.service';
 import { LikeTrelloComponent } from './like-trello/like-trello.component';
 import { DragulaModule } from 'ng2-dragula';
 import { MongoTodoComponent } from './mongo-todo/mongo-todo.component';
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
@@ -18,7 +19,7 @@ const appRoutes: Routes = [
   { path: 'track-mobile-cmp', component: TrackMobileComponent },
   { path: 'app-like-trello', component: LikeTrelloComponent },
   { path: 'app-mongo-todo', component: MongoTodoComponent },
-
+  { path: 'app-login', component: LoginComponent}
 
 ];
 
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     TodoComponent,
     LikeTrelloComponent,
-    MongoTodoComponent
+    MongoTodoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

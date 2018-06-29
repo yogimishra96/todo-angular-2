@@ -29,7 +29,7 @@ export class MongoTodoComponent implements OnInit {
       // this.todos.addTodos({"title" : this.newTodoText})
       let newtodo = {"title" : this.newTodoText,"completed" : false};
       this.todos.addTodos(newtodo).subscribe((data) => {
-        console.log(data.statusCode);
+      //  console.log(data.statusCode);
         // if(data.statusCode == 200){
           this.todoArray.push(newtodo);
         // }
