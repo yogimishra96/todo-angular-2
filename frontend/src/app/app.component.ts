@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-
 // import
-
 
 @Component ({
    selector: 'app-root',
@@ -20,7 +18,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    console.log('sadf');
     if(this.redirect_login){
       this.showHeader = false;
       this.router.navigate(['/app-login']);
