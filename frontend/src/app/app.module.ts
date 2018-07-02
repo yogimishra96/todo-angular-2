@@ -12,12 +12,16 @@ import { LikeTrelloComponent } from './like-trello/like-trello.component';
 import { DragulaModule } from 'ng2-dragula';
 import { MongoTodoComponent } from './mongo-todo/mongo-todo.component';
 import { LoginComponent } from './login/login.component';
-// import {  } from '@angular/material';
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MyNavComponent } from './my-nav/my-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatTabsModule,MatPaginatorModule,MdToolbarRow,MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-  MatButtonModule, MatCheckboxModule } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+
+
 import 'hammerjs';
 
 
@@ -37,8 +41,7 @@ const appRoutes: Routes = [
     TodoComponent,
     LikeTrelloComponent,
     MongoTodoComponent,
-    LoginComponent,
-    MyNavComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,18 +52,11 @@ const appRoutes: Routes = [
       appRoutes
       // { enableTracing: false } // <-- debugging purposes only
     ),
-    BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatSidenavModule,
-    MatPaginatorModule,
-    MatIconModule,
+    MatButtonModule, MatCheckboxModule,
+    MatFormFieldModule,MatCardModule,
     MatTabsModule,
-    MatListModule,
-
-
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [NumberDetails],
   bootstrap: [AppComponent]

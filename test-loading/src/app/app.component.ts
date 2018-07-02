@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 export class AppComponent implements OnInit{
 
-  redirect_login = false;
+  redirect_login = true;
   showHeader     = true;
 
   constructor(private router: Router){
@@ -24,7 +24,6 @@ export class AppComponent implements OnInit{
     }else{
       this.router.navigate(['/']);
     }
-
   }
 
 

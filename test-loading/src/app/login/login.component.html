@@ -1,0 +1,27 @@
+<div class="form-section">
+  <!--<mat-card>-->
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab label="Sign In">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Enter your email" formControlName="email" required>
+            <!--<mat-error *ngIf="form.email.invalid">{{getErrorMessage()}}</mat-error>-->
+
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter your password" formControlName="password"
+                   [type]="hide ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <!--<mat-error *ngIf="form.password.invalid">{{getPasswordError()}}</mat-error>-->
+          </mat-form-field>
+          <button mat-raised-button color="primary" [disabled]="!form.valid">Login</button>
+        </div>
+      </form>
+
+    </mat-tab>
+    <mat-tab label="Sign Up"> Content 2</mat-tab>
+  </mat-tab-group>
+  <!--</mat-card>-->
+</div>
+
