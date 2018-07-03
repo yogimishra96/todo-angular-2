@@ -2,25 +2,53 @@
   <!--<mat-card>-->
   <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
     <mat-tab label="Sign In">
-      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit(signInForm.value)">
         <div class="example-container">
           <mat-form-field>
             <input matInput placeholder="Enter your email" formControlName="email" required>
-            <!--<mat-error *ngIf="form.email.invalid">{{getErrorMessage()}}</mat-error>-->
+            <mat-error *ngIf="signInForm.controls.email.errors">{{signInEmailError()}}</mat-error>
 
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="Enter your password" formControlName="password"
                    [type]="hide ? 'password' : 'text'" required>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-            <!--<mat-error *ngIf="form.password.invalid">{{getPasswordError()}}</mat-error>-->
+            <mat-error *ngIf="signInForm.controls.password.invalid">{{signInPasswordError()}}</mat-error>
           </mat-form-field>
-          <button mat-raised-button color="primary" [disabled]="!form.valid">Login</button>
+
+          <button mat-raised-button color="primary" [disabled]="!signInForm.valid">Sign In</button>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab label="Sign Up">
+      <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit(SignUpForm.value)">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Enter your full name" formControlName="name" required>
+            <mat-error *ngIf="SignUpForm.controls.name.errors">{{signUpNameError()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter your email" formControlName="email" required>
+            <mat-error *ngIf="SignUpForm.controls.email.errors">{{signUpEmailError()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter your password" formControlName="password"
+                   [type]="hide_p ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hide_p = !hide_p">{{hide_p ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls.password.invalid">{{signUpPasswordError()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Re-enter your password" formControlName="confirmPass"
+                   [type]="hide ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls.confirmPass.invalid">{{signUpConfirmPasswordError()}}</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" [disabled]="!SignUpForm.valid">Sign Up</button>
         </div>
       </form>
 
     </mat-tab>
-    <mat-tab label="Sign Up"> Content 2</mat-tab>
   </mat-tab-group>
   <!--</mat-card>-->
 </div>

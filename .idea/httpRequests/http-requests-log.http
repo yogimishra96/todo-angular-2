@@ -1,0 +1,42 @@
+POST http://localhost:3000/api/login?=
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:3000/api/login?=
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:3000/api/register?=
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:8080/http://localhost:3000/api/register?=
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST https://httpbin.org/post
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2018-07-03T034208.200.json
+
+###
+
+GET http://localhost:8080/resources
+Accept: */*
+Cache-Control: no-cache
+
+###
+
